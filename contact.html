@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Gathered Basket Co.</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.contact-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+  align-items: start; max-width: 1200px; margin: 0 auto;
+  padding: 1rem 3rem 5rem;
+}
+.contact-form-wrap { }
+.contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-group label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--warm);
+  border: 1.5px solid var(--warm-deep);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--ink-soft); opacity: 0.5; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  background: var(--canvas);
+}
+.form-group textarea { resize: vertical; min-height: 130px; }
+.btn-submit {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: white; background: var(--accent);
+  border: none; cursor: pointer;
+  border-radius: var(--radius);
+  padding: 1rem 2.25rem;
+  align-self: flex-start;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-submit:hover { background: #B8521F; transform: translateY(-2px); }
+.btn-submit.sent { background: var(--accent-2); cursor: default; transform: none; }
+
+.contact-sidebar {}
+.contact-sidebar h3 {
+  font-size: 1.6rem; margin-bottom: 0.75rem;
+}
+.contact-sidebar > p {
+  font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 2rem;
+}
+.contact-details { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+.contact-detail-row {
+  display: flex; align-items: flex-start; gap: 1rem;
+}
+.detail-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: var(--warm); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.detail-text { padding-top: 0.3rem; }
+.detail-text strong { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.15rem; }
+.detail-text span { font-size: 0.8rem; color: var(--ink-soft); }
+.bulk-card {
+  background: var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  color: var(--canvas);
+}
+.bulk-card h4 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.25rem; color: var(--canvas);
+  margin-bottom: 0.6rem;
+}
+.bulk-card p {
+  font-size: 0.82rem; line-height: 1.75;
+  color: rgba(253,250,244,0.6); margin-bottom: 1.25rem;
+}
+.bulk-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.bulk-chip {
+  background: rgba(255,255,255,0.08);
+  color: rgba(253,250,244,0.7);
+  font-size: 0.72rem; font-weight: 500;
+  padding: 0.3rem 0.75rem; border-radius: 20px;
+}
+.success-banner {
+  display: none;
+  background: #EBF5EC; border: 1.5px solid var(--accent-2);
+  border-radius: var(--radius-lg); padding: 1.5rem 1.75rem;
+  margin-bottom: 1.5rem; color: var(--accent-2);
+}
+.success-banner h4 { font-size: 1rem; margin-bottom: 0.4rem; }
+.success-banner p { font-size: 0.85rem; line-height: 1.7; color: var(--ink-soft); }
+
+@media(max-width:800px){
+  .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="_shared.js"></script>
+
+<div class="page-header">
+  <div class="eyebrow fade-up">Get in touch</div>
+  <h1 class="fade-up delay-1">Let's send something <em>special</em></h1>
+  <p class="fade-up delay-2">One basket or a hundred — tell us what you need and we'll take care of the rest.</p>
+</div>
+
+<div class="contact-layout">
+  <div class="contact-form-wrap fade-up">
+    <div class="success-banner" id="success-banner">
+      <h4>Message sent! 🎉</h4>
+      <p>Thanks for reaching out. We'll get back to you within one business day to confirm your order and next steps.</p>
+    </div>
+    <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First name</label>
+          <input type="text" placeholder="Jane" required>
+        </div>
+        <div class="form-group">
+          <label>Last name</label>
+          <input type="text" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" placeholder="jane@example.com" required>
+      </div>
+      <div class="form-group">
+        <label>Phone (optional)</label>
+        <input type="tel" placeholder="(555) 000-0000">
+      </div>
+      <div class="form-group">
+        <label>Order type</label>
+        <select required>
+          <option value="" disabled selected>Select one...</option>
+          <option>Personal gift (1–3 baskets)</option>
+          <option>Small batch (4–19 baskets)</option>
+          <option>Corporate / bulk (20+ baskets)</option>
+          <option>Just a question</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Theme of interest</label>
+        <select>
+          <option value="" disabled selected>Which occasion?</option>
+          <option>New Job</option>
+          <option>Retirement</option>
+          <option>Sympathy</option>
+          <option>Graduation</option>
+          <option>Teacher Appreciation</option>
+          <option>Engagement</option>
+          <option>Not sure yet</option>
+          <option>Multiple themes</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us about the occasion, how many baskets, any customizations, or just say hello..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit" id="submit-btn">Send Message →</button>
+    </form>
+  </div>
+
+  <div class="contact-sidebar fade-up delay-1">
+    <h3>We'd love to <em>hear from you</em></h3>
+    <p>Whether you're sending one thoughtful gift or building a recurring corporate gifting program, we'll make the process easy. Reach out and we'll be in touch fast.</p>
+
+    <div class="contact-details">
+      <div class="contact-detail-row">
+        <div class="detail-icon">📍</div>
+        <div class="detail-text">
+          <strong>Springfield, Virginia</strong>
+          <span>Local pickup available · Ships nationwide</span>
+        </div>
+      </div>
+      <div class="contact-detail-row">
+        <div class="detail-icon">📧</div>
+        <div class="detail-text">
+          <strong>hello@gatheredbasket.com</strong>
+          <span>We reply within 1 business day</span>
+        </div>
+      </div>
+      <div class="contact-detail-row">
+        <div class="detail-icon">⏱️</div>
+        <div class="detail-text">
+          <strong>Order processing</strong>
+          <span>Baskets ship 1–2 days after confirmation</span>
+        </div>
+      </div>
+      <div class="contact-detail-row">
+        <div class="detail-icon">📦</div>
+        <div class="detail-text">
+          <strong>Free shipping over $120</strong>
+          <span>Expedited options available at checkout</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bulk-card">
+      <h4>Corporate & Bulk Orders</h4>
+      <p>Need 20 or more baskets? We handle large orders with volume pricing, custom branding options, and a dedicated point of contact. Perfect for:</p>
+      <div class="bulk-chips">
+        <span class="bulk-chip">Employee onboarding</span>
+        <span class="bulk-chip">Client gifting</span>
+        <span class="bulk-chip">Holiday programs</span>
+        <span class="bulk-chip">Team milestones</span>
+        <span class="bulk-chip">Conference swag</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Message Sent ✓';
+  btn.classList.add('sent');
+  btn.disabled = true;
+  document.getElementById('success-banner').style.display = 'block';
+  document.getElementById('contact-form').style.opacity = '0.4';
+  document.getElementById('contact-form').style.pointerEvents = 'none';
+  window.scrollTo({ top: document.querySelector('.contact-form-wrap').offsetTop - 100, behavior: 'smooth' });
+}
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+</body>
+</html>

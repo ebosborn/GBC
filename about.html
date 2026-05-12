@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Gathered Basket Co.</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.about-hero {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+  align-items: center; padding: 2rem 3rem 4rem;
+  max-width: 1200px; margin: 0 auto;
+}
+.about-visual {
+  background: var(--warm);
+  border-radius: var(--radius-lg);
+  height: 460px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.about-visual-pattern {
+  position: absolute; inset: 0; opacity: 0.5;
+}
+.about-pullquote {
+  position: relative; z-index: 2;
+  padding: 2.5rem; text-align: center;
+}
+.about-pullquote blockquote {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.55rem; line-height: 1.55;
+  color: var(--ink); font-style: italic;
+  margin-bottom: 1rem;
+}
+.about-pullquote cite {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--ink-soft); font-style: normal;
+}
+
+.about-text p {
+  font-size: 1rem; line-height: 1.9; color: var(--ink-soft);
+  margin-bottom: 1.25rem;
+}
+.values-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  margin-top: 2rem;
+}
+.value-card {
+  background: var(--warm);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+.value-card h5 {
+  font-family: 'Syne', sans-serif; font-weight: 700;
+  font-size: 0.82rem; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.value-card p { font-size: 0.82rem; line-height: 1.65; color: var(--ink-soft); }
+
+.stats-row {
+  background: var(--ink);
+  padding: 4rem 3rem;
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 2rem; text-align: center;
+}
+.stat-num {
+  font-family: 'Instrument Serif', serif;
+  font-size: 3.5rem; color: var(--canvas);
+  line-height: 1; margin-bottom: 0.5rem;
+}
+.stat-num span { color: var(--accent); }
+.stat-label {
+  font-size: 0.82rem; color: rgba(253,250,244,0.5);
+  letter-spacing: 0.06em; line-height: 1.5;
+}
+
+@media(max-width:800px){
+  .about-hero { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-visual { height: 300px; }
+  .stats-row { grid-template-columns: 1fr; gap: 2.5rem; }
+  .values-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<script src="_shared.js"></script>
+
+<div class="page-header">
+  <div class="eyebrow fade-up">Our story</div>
+  <h1 class="fade-up delay-1">Built for the <em>moments</em> that matter</h1>
+  <p class="fade-up delay-2">We got tired of generic gift sets. So we built something different.</p>
+</div>
+
+<div class="about-hero">
+  <div class="about-visual fade-up">
+    <svg class="about-visual-pattern" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="grid-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1.2" fill="#C4A070"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="460" fill="url(#grid-dots)"/>
+    </svg>
+    <div class="about-pullquote">
+      <blockquote>"A gift isn't about the price tag. It's about showing someone you paid attention."</blockquote>
+      <cite>— Gathered Basket Co.</cite>
+    </div>
+  </div>
+  <div class="about-text fade-up delay-1">
+    <div class="eyebrow">Why we started</div>
+    <h2 style="margin-bottom:1.5rem;">Gifting that actually <em>means something</em></h2>
+    <p>We started Gathered Basket Co. because we were tired of receiving — and sending — gift baskets full of things nobody uses. Waxy chocolates nobody eats. Cheap candles that smell like a car freshener. That one cheese spread that comes in every set but ends up in the trash.</p>
+    <p>So we built something different: occasion-first baskets where every single item earns its place. And we went one step further — if you don't want something, you can take it out and pay less. Because you shouldn't be charged for things you didn't want.</p>
+    <p>We're based in Springfield, Virginia, and we ship everywhere. Every basket is assembled by hand before it leaves us.</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <h5>Transparent pricing</h5>
+        <p>Remove an item, the price drops. No hidden anything.</p>
+      </div>
+      <div class="value-card">
+        <h5>Curated with care</h5>
+        <p>Every item earns its place in the basket. No filler.</p>
+      </div>
+      <div class="value-card">
+        <h5>Local first</h5>
+        <p>We source from small makers and local businesses wherever we can.</p>
+      </div>
+      <div class="value-card">
+        <h5>Occasion-specific</h5>
+        <p>Built for real moments — not generic "gift giving."</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-row">
+  <div class="fade-up">
+    <div class="stat-num">6<span>+</span></div>
+    <div class="stat-label">Themed<br>Collections</div>
+  </div>
+  <div class="fade-up delay-1">
+    <div class="stat-num">100<span>%</span></div>
+    <div class="stat-label">Hand-assembled<br>by us</div>
+  </div>
+  <div class="fade-up delay-2">
+    <div class="stat-num">50<span>+</span></div>
+    <div class="stat-label">States we<br>ship to</div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container" style="text-align:center;max-width:640px;margin:0 auto;">
+    <div class="eyebrow fade-up" style="justify-content:center;">Get in touch</div>
+    <h2 class="fade-up delay-1">Let's find the <em>perfect gift</em> together</h2>
+    <p style="font-size:1rem;line-height:1.8;color:var(--ink-soft);margin:1rem 0 2rem;" class="fade-up delay-2">Whether you're ordering one basket or setting up a corporate gifting program, we'd love to help.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;" class="fade-up delay-3">
+      <a href="contact.html" class="btn btn-fill">Contact Us</a>
+      <a href="themes.html" class="btn btn-outline">Browse Themes</a>
+    </div>
+  </div>
+</section>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+</body>
+</html>

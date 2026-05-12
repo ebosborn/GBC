@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Themes — Gathered Basket Co.</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+.themes-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem;
+  margin-top: 3rem;
+}
+.theme-card {
+  background: var(--canvas);
+  border: 1px solid rgba(15,13,10,0.07);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.theme-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.theme-card-header {
+  height: 180px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; position: relative; overflow: hidden;
+}
+.theme-card-body { padding: 1.75rem; }
+.theme-card-body h3 { margin-bottom: 0.6rem; font-size: 1.4rem; }
+.theme-card-body .desc { font-size: 0.9rem; line-height: 1.8; color: var(--ink-soft); margin-bottom: 1.25rem; }
+.items-list {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.item-chip {
+  background: var(--warm);
+  border: 1px solid var(--warm-deep);
+  border-radius: 20px;
+  font-size: 0.75rem; font-weight: 500;
+  padding: 0.3rem 0.75rem; color: var(--ink-mid);
+}
+.theme-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--warm-deep);
+}
+.theme-price {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+.theme-price strong { font-size: 1.5rem; color: var(--ink); display: block; line-height: 1; }
+.theme-badge {
+  position: absolute; top: 1rem; right: 1rem;
+  background: rgba(15,13,10,0.6);
+  color: var(--canvas); font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.3rem 0.75rem; border-radius: 20px;
+}
+.note-box {
+  background: var(--warm);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.25rem 1.5rem;
+  margin-top: 3rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.note-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink-mid); flex: 1; min-width: 260px; }
+.note-box strong { color: var(--ink); }
+
+@media(max-width:800px){ .themes-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<script src="_shared.js"></script>
+
+<div class="page-header">
+  <div class="eyebrow fade-up">All collections</div>
+  <h1 class="fade-up delay-1">Choose your <em>theme</em></h1>
+  <p class="fade-up delay-2">Six occasions, each thoughtfully stocked. Remove any item you don't want — the price adjusts automatically.</p>
+</div>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="themes-grid">
+
+      <!-- NEW JOB -->
+      <div class="theme-card fade-up" id="new-job">
+        <div class="theme-card-header" style="background:linear-gradient(135deg,#2A2420,#5A3A28)">
+          <span>💼</span>
+          <span class="theme-badge">Most Popular</span>
+        </div>
+        <div class="theme-card-body">
+          <h3>New Job</h3>
+          <p class="desc">Celebrate a fresh start and a new chapter. Everything they need to feel confident, organized, and ready to make their mark.</p>
+          <div class="items-list">
+            <span class="item-chip">Leather-bound planner</span>
+            <span class="item-chip">Premium pen set</span>
+            <span class="item-chip">Artisan coffee blend</span>
+            <span class="item-chip">Motivational desk card</span>
+            <span class="item-chip">Protein snack mix</span>
+            <span class="item-chip">Branded tote bag</span>
+            <span class="item-chip">Sticky note set</span>
+          </div>
+          <div class="theme-footer">
+            <div class="theme-price"><span>Starting at</span><strong>$65</strong></div>
+            <a href="customize.html" class="btn btn-fill">Customize This Basket →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- RETIREMENT -->
+      <div class="theme-card fade-up delay-1" id="retirement">
+        <div class="theme-card-header" style="background:linear-gradient(135deg,#3A3020,#6A5030)">
+          <span>🌅</span>
+        </div>
+        <div class="theme-card-body">
+          <h3>Retirement</h3>
+          <p class="desc">For the person who's earned every single second of rest. A celebration basket that honors decades of dedication and the adventures ahead.</p>
+          <div class="items-list">
+            <span class="item-chip">Herbal tea collection</span>
+            <span class="item-chip">Cozy throw blanket</span>
+            <span class="item-chip">Artisan jam trio</span>
+            <span class="item-chip">Crossword puzzle book</span>
+            <span class="item-chip">Local honey jar</span>
+            <span class="item-chip">Hand lotion</span>
+            <span class="item-chip">Heartfelt keepsake card</span>
+          </div>
+          <div class="theme-footer">
+            <div class="theme-price"><span>Starting at</span><strong>$75</strong></div>
+            <a href="contact.html" class="btn btn-outline">Order This Basket</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- SYMPATHY -->
+      <div class="theme-card fade-up" id="sympathy">
+        <div class="theme-card-header" style="background:linear-gradient(135deg,#2A2E2A,#4A5448)">
+          <span>🕊️</span>
+        </div>
+        <div class="theme-card-body">
+          <h3>Sympathy</h3>
+          <p class="desc">A gentle, comforting collection for those navigating grief. Warm, nourishing, and chosen with care — because sometimes the kindest thing you can do is show up.</p>
+          <div class="items-list">
+            <span class="item-chip">Chamomile & lavender tea</span>
+            <span class="item-chip">Soft wax candle</span>
+            <span class="item-chip">Shortbread cookies</span>
+            <span class="item-chip">Eucalyptus hand cream</span>
+            <span class="item-chip">Comfort journal</span>
+            <span class="item-chip">Dried flower posy</span>
+            <span class="item-chip">Handwritten condolence card</span>
+          </div>
+          <div class="theme-footer">
+            <div class="theme-price"><span>Starting at</span><strong>$60</strong></div>
+            <a href="contact.html" class="btn btn-outline">Order This Basket</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRADUATION -->
+      <div class="theme-card fade-up delay-1" id="graduation">
+        <div class="theme-card-header" style="background:linear-gradient(135deg,#2A2818,#5A5020)">
+          <span>🎓</span>
+          <span class="theme-badge">Great Gift</span>
+        </div>
+        <div class="theme-card-body">
+          <h3>Graduation</h3>
+          <p class="desc">For the grad who just crossed the finish line and is about to sprint into everything that comes next. Practical, celebratory, and genuinely useful.</p>
+          <div class="items-list">
+            <span class="item-chip">Insulated tumbler</span>
+            <span class="item-chip">Card holder wallet</span>
+            <span class="item-chip">Gourmet popcorn</span>
+            <span class="item-chip">Celebration candle</span>
+            <span class="item-chip">"What's Next" journal</span>
+            <span class="item-chip">Snack mix</span>
+            <span class="item-chip">Scratch-off adventure map</span>
+          </div>
+          <div class="theme-footer">
+            <div class="theme-price"><span>Starting at</span><strong>$70</strong></div>
+            <a href="contact.html" class="btn btn-outline">Order This Basket</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEACHER -->
+      <div class="theme-card fade-up" id="teacher">
+        <div class="theme-card-header" style="background:linear-gradient(135deg,#1E2A1E,#3A5A38)">
+          <span>🍎</span>
+        </div>
+        <div class="theme-card-body">
+          <h3>Teacher Appreciation</h3>
+          <p class="desc">End-of-year gifts for the teachers who give everything. Chosen to help them actually unwind and feel seen — not just another mug.</p>
+          <div class="items-list">
+            <span class="item-chip">Specialty coffee or tea</span>
+            <span class="item-chip">Chocolate assortment</span>
+            <span class="item-chip">Cozy socks</span>
+            <span class="item-chip">Relaxing bath soak</span>
+            <span class="item-chip">Personal notepad</span>
+            <span class="item-chip">Scented candle</span>
+            <span class="item-chip">Heartfelt thank-you card</span>
+          </div>
+          <div class="theme-footer">
+            <div class="theme-price"><span>Starting at</span><strong>$55</strong></div>
+            <a href="contact.html" class="btn btn-outline">Order This Basket</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENGAGEMENT -->
+      <div class="theme-card fade-up delay-1" id="engagement">
+        <div class="theme-card-header" style="background:linear-gradient(135deg,#2E1E1E,#6A3828)">
+          <span>💍</span>
+          <span class="theme-badge">For Couples</span>
+        </div>
+        <div class="theme-card-body">
+          <h3>Engagement</h3>
+          <p class="desc">Celebrate the big YES with a basket as memorable as the moment. Perfect for the newly engaged couple — romantic, indulgent, and fun.</p>
+          <div class="items-list">
+            <span class="item-chip">Sparkling cider or wine</span>
+            <span class="item-chip">Artisan chocolate truffles</span>
+            <span class="item-chip">Couples journal</span>
+            <span class="item-chip">Rose gold champagne flutes</span>
+            <span class="item-chip">Luxury candle</span>
+            <span class="item-chip">Charcuterie board snacks</span>
+            <span class="item-chip">Personalized keepsake card</span>
+          </div>
+          <div class="theme-footer">
+            <div class="theme-price"><span>Starting at</span><strong>$85</strong></div>
+            <a href="contact.html" class="btn btn-outline">Order This Basket</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note-box fade-up">
+      <p><strong>Don't want every item?</strong> That's the whole point — every item can be removed at checkout and the price drops to match. The New Job basket has a full interactive customizer. More coming soon!</p>
+      <a href="customize.html" class="btn btn-fill">Try the Customizer →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  // Scroll to anchor if hash present
+  if(window.location.hash) {
+    setTimeout(() => {
+      const el = document.querySelector(window.location.hash);
+      if(el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 300);
+  }
+</script>
+</body>
+</html>
